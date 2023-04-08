@@ -2,7 +2,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Form, Table, Input, Button } from "antd";
-import { Select, Tag } from "antd";
+import { Select } from "antd";
 import { Modal } from "antd";
 import { Radio } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
@@ -24,27 +24,27 @@ function App() {
         setData(myJson);
       });
   };
+  //Fetching data fron json to render on screen
   useEffect(() => {
     getData();
   }, []);
-  ///filreererererererer
-  const [filters, setFilters] = useState({ status: ["OPEN"] });
-
+  //Filter state for storing filter value for e and f columns
+  const [filters, setFilters] = useState({});
+  // Search state variables for global search with a, b, c and d columns
   const [searchedText, setSearchedText] = useState("");
-  //setting data to fields
+  //Setting data to fields using state
   const [data, setData] = useState([]);
   // Submitting Data to todo Table
   const [form] = Form.useForm();
-  // const time = Date("timestamp");
   const handleSubmit = (formData) => {
     const timestamp = new Date().toISOString();
     setData([...data, { ...formData, timestamp }]);
     form.resetFields();
   };
-  //storing  tags
+  //Storing  tags
   const { Option } = Select;
   const [selectedTags, setSelectedTags] = useState([]);
-  //setting tags values
+  //Setting tags values
   function handleTagChange(tags) {
     setSelectedTags(tags);
   }
@@ -136,6 +136,7 @@ function App() {
     {
       title: "Tags",
       dataIndex: "tags",
+      //Setting values for tags filter dropdown
       filters: [
         { text: "React", value: "React" },
         { text: "Angular", value: "Angular" },
@@ -147,7 +148,7 @@ function App() {
     {
       title: "Status",
       dataIndex: "status",
-
+      //Setting values for status filter dropdown
       filters: [
         { text: "OPEN", value: "OPEN" },
         { text: "DONE", value: "DONE" },
@@ -161,7 +162,7 @@ function App() {
       title: "Delete",
       dataIndex: "",
       render: (record) => (
-        //Delete icon and functionality
+        //Delete button/icon and functionality
         <DeleteOutlined
           onClick={() => {
             onDeleteTodo(record);
@@ -220,6 +221,7 @@ function App() {
             }}
             form={form}
             onFinish={handleSubmit}
+            //Setting By Default Values as per the requirements
             fields={[
               {
                 name: ["status"],
@@ -330,7 +332,7 @@ function App() {
           columns={columns}
           rowKey={(record) => record.id}
         ></Table>
-        {/* Opening and closing of pop up using Modal */}
+        {/* Opening and closing of pop up using Modal For Updation of todo data */}
         <Modal
           title="Edit Student"
           open={isEditing}
@@ -351,7 +353,6 @@ function App() {
             resetEditing();
           }}
         >
-          {" "}
           <label>Title</label>
           <br />
           <Input
