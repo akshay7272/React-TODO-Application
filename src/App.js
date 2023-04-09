@@ -7,6 +7,7 @@ import { Modal } from "antd";
 import { Radio } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import "antd/dist/reset.css";
+import "./App.css";
 
 function App() {
   // fetching mock json data
@@ -191,7 +192,9 @@ function App() {
       <div className="App">
         <header className="App-header">
           {/* Main Title of Todo Application */}
-          <h1 style={{ textAlign: "center" }}>Todo Application</h1>
+          <h1 style={{ textAlign: "center" }} className="mobile-heading">
+            Todo Application
+          </h1>
         </header>
         {/* Top Search Field for all column search */}
         <Input.Search
@@ -207,7 +210,7 @@ function App() {
             setSearchedText(value);
           }}
         />
-        <div>
+        <div className="todo-form">
           {/* Form tag with final submission onFinish */}
           <Form
             style={{
