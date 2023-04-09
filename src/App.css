@@ -22,3 +22,12 @@
         border-radius: 6px !important;
     }
 }
+@media (min-width:768px) {
+    .ant-input-search {
+        width: 50% !important;
+        margin-left: 25% !important;
+        border: 2px solid cadetblue !important;
+        border-radius: 6px !important;
+    }
+    
+}
