@@ -248,9 +248,9 @@ function App() {
               rules={[
                 {
                   required: true,
-                  message: "Please Enter Title for Todo",
                   max: 100,
-                  message: "Max 100 Characters Allowed",
+                  message:
+                    "Please Enter Title for Todo & Max 100 Characters Allowed",
                 },
               ]}
             >
@@ -264,9 +264,9 @@ function App() {
               rules={[
                 {
                   required: true,
-                  message: "Please Enter Description for your Todo",
                   max: 1000,
-                  message: "Max 1000 Characters Allowed",
+                  message:
+                    "Please Enter Description for your Todo & Max 1000 Characters Allowed",
                 },
               ]}
             >
